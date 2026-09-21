@@ -65,7 +65,7 @@ export default function ProfileHero() {
                     <div className="relative flex-shrink-0">
                         <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-[#39ff8a]/50 shadow-xl shadow-black/40 ring-4 ring-[#0d0f14]">
                             <Image
-                                src="/avatarpng.jpg"
+                                src="/bernard1.jpeg"
                                 alt="Bernady Krzysztof"
                                 width={112}
                                 height={112}
@@ -161,7 +161,7 @@ export default function ProfileHero() {
                             <>
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-[#39ff8a]/30 flex-shrink-0">
-                                        <Image src="/avatarpng.jpg" alt="Bernady Krzysztof" width={48} height={48} className="object-cover w-full h-full" />
+                                        <Image src="/bernard1.jpeg" alt="Bernady Krzysztof" width={48} height={48} className="object-cover w-full h-full" />
                                     </div>
                                     <div>
                                         <div className="font-bold text-white text-sm">Bernady Krzysztof</div>

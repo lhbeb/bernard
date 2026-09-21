@@ -14,12 +14,12 @@ export default function TermsOfServicePage() {
             <div className="space-y-8 text-gray-600 leading-relaxed">
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
-                    <p>By accessing and using Elizabeth Carlson ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please refrain from using our website.</p>
+                    <p>By accessing and using Bernady Krzysztof ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please refrain from using our website.</p>
                 </section>
 
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Use of Creative Assets</h2>
-                    <p>The core purpose of Elizabeth Carlson is to provide creator resources, tutorial files, presets, overlays, and video editing assets. Unless explicitly stated otherwise on the individual asset page, downloaded resources are subject to our <Link href="/license" className="text-[#3b82f6] hover:underline">Creative Asset License</Link>, which grants you specific rights to use the assets in your projects while prohibiting resale or redistribution of the raw files.</p>
+                    <p>The core purpose of Bernady Krzysztof is to provide creator resources, tutorial files, presets, overlays, and video editing assets. Unless explicitly stated otherwise on the individual asset page, downloaded resources are subject to our <Link href="/license" className="text-[#3b82f6] hover:underline">Creative Asset License</Link>, which grants you specific rights to use the assets in your projects while prohibiting resale or redistribution of the raw files.</p>
                 </section>
 
                 <section>
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
 
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Limitation of Liability</h2>
-                    <p>In no event shall Elizabeth Carlson or its creator be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website, tutorials, or creative assets. All assets are provided "as is" without warranty of any kind.</p>
+                    <p>In no event shall Bernady Krzysztof or its creator be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website, tutorials, or creative assets. All assets are provided "as is" without warranty of any kind.</p>
                 </section>
 
                 <section>

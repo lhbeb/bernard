@@ -16,7 +16,7 @@ function ProductCard({ product }: { product: Product }) {
                 <div className="absolute top-3 left-3"><span className={`tag ${isFree ? 'tag-free' : 'tag-premium'}`}>{isFree ? <><Zap size={10} /> Free</> : <><Ticket size={10} /> ${product.price}</>}</span></div>
             </div>
             <div className="p-5">
-                <h3 className="font-display font-bold text-base text-[var(--ink)] group-hover:text-[var(--cobalt)] transition-colors line-clamp-2 mb-2">{product.title}</h3>
+                <div className="flex items-start justify-between gap-3 mb-2"><h3 className="font-display font-bold text-base text-[var(--ink)] group-hover:text-[var(--cobalt)] transition-colors line-clamp-2">{product.title}</h3>{!isFree && <span className="shrink-0 text-lg font-bold text-[var(--ink)]">${Number(product.price).toFixed(2)}</span>}</div>
                 {product.description && <p className="text-sm text-[var(--muted-text)] line-clamp-2 leading-relaxed">{product.description}</p>}
                 <div className="flex items-center justify-between mt-5 pt-4 border-t border-[var(--line)]"><span className="text-sm font-semibold text-[var(--ink)] group-hover:text-[var(--cobalt)] transition-colors">{isFree ? 'Learn from the code' : 'Use this foundation'} <ArrowUpRight size={13} className="inline ml-1" /></span><span className="inline-flex items-center gap-1.5 text-[10px] text-[var(--muted-text)] mono uppercase tracking-wide"><Image src="/unitylogo.svg" alt="Unity" width={14} height={14} className="object-contain" /> Unity source code</span></div>
             </div>

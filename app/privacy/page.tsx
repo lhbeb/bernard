@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-8 text-gray-600 leading-relaxed">
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Information We Collect</h2>
-                    <p>At Elizabeth Carlson, we respect your privacy. This website is designed to share tutorials, video editing assets, and creative resources without requiring you to create an account to browse available listings.</p>
+                    <p>At Bernady Krzysztof, we respect your privacy. This website is designed to share tutorials, video editing assets, and creative resources without requiring you to create an account to browse available listings.</p>
                     <p className="mt-4">If you choose to subscribe to the newsletter, we collect your email address solely for the purpose of sending updates about new tutorials, asset drops, resources, and learning opportunities.</p>
                 </section>
 

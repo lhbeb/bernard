@@ -50,11 +50,7 @@ export default function ProfileHero() {
                 {/* scanline texture for that retro gaming feel */}
                 <div className="absolute inset-0 scanline opacity-30" />
 
-                {/* GDS badge floating in top-right */}
-                <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm border border-[#39ff8a]/30 rounded-lg px-3 py-1.5 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#39ff8a] animate-pulse" />
-                    <span className="text-[#39ff8a] text-xs font-mono font-bold">GDS2027 Speaker</span>
-                </div>
+
             </div>
 
             {/* ── Profile Card ── */}

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Coffee, Download, Flame, MonitorPlay, PenTool, Sparkles, Video } from 'lucide-react'
+import { Coffee, Download, Gamepad2, MonitorPlay, PenTool, Sparkles, Video } from 'lucide-react'
 
 export const metadata = {
     title: 'About - Bernady Krzysztof',
@@ -8,8 +8,8 @@ export const metadata = {
 }
 
 const stats = [
-    { value: '35+', label: 'Games Created' },
-    { value: '50+', label: 'Unity Resources' },
+    { value: '35+',  label: 'Games Created' },
+    { value: '50+',  label: 'Unity Resources' },
     { value: '100+', label: 'Dev Experiments' },
     { value: '1.2K', label: 'Indie Developers' },
 ]
@@ -39,26 +39,28 @@ const values = [
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-[#f5f6f8] text-gray-900">
-            <section className="relative overflow-hidden border-b border-[#e5e7eb]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#fff1f3]/60 via-[#f5f6f8] to-[#1c1a2e]" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#e85d75]/6 blur-[130px] rounded-full pointer-events-none" />
+        <div className="min-h-screen bg-[#0d0f14] text-slate-200">
+
+            {/* Hero */}
+            <section className="relative overflow-hidden border-b border-[#1f2433]">
+                <div className="absolute inset-0 grid-bg opacity-60" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#39ff8a]/5 blur-[120px] rounded-full pointer-events-none" />
 
                 <div className="relative max-w-5xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12">
                     <div className="flex-shrink-0">
-                        <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-[#e85d75]/30 shadow-2xl shadow-[#e85d75]/10">
+                        <div className="relative w-40 h-40 rounded-2xl overflow-hidden border-2 border-[#39ff8a]/40 shadow-2xl shadow-black/40">
                             <Image src="/avatarpng.jpg" alt="Bernady Krzysztof" fill className="object-cover" />
                         </div>
                     </div>
 
                     <div>
-                        <div className="inline-flex items-center gap-2 bg-[#e85d75]/10 border border-[#e85d75]/30 text-[#e85d75] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
-                            Indie Game Developer
+                        <div className="inline-flex items-center gap-2 bg-[#39ff8a]/10 border border-[#39ff8a]/25 text-[#39ff8a] text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
+                            <Gamepad2 size={12} /> Indie Game Developer
                         </div>
-                        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
                             Hey, I&apos;m Bernady
                         </h1>
-                        <p className="text-gray-500 text-lg leading-relaxed max-w-xl">
+                        <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
                             I&apos;m an indie game developer passionate about turning ideas into playable worlds with Unity 3D.
                         </p>
                     </div>
@@ -66,19 +68,22 @@ export default function AboutPage() {
             </section>
 
             <div className="max-w-5xl mx-auto px-6 py-16 space-y-20">
+
+                {/* Stats */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {stats.map(({ value, label }) => (
-                        <div key={label} className="bg-[#ffffff] border border-[#e5e7eb] rounded-2xl p-6 text-center">
-                            <p className="text-3xl font-bold text-[#e85d75] mb-1">{value}</p>
-                            <p className="text-sm text-gray-400">{label}</p>
+                        <div key={label} className="bg-[#13161d] border border-[#1f2433] rounded-2xl p-6 text-center">
+                            <p className="text-3xl font-bold text-[#39ff8a] mb-1 font-mono">{value}</p>
+                            <p className="text-sm text-slate-500">{label}</p>
                         </div>
                     ))}
                 </div>
 
+                {/* Story */}
                 <div className="flex flex-col md:flex-row gap-10 items-start">
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">The Story</h2>
-                        <div className="space-y-4 text-gray-500 leading-relaxed">
+                        <h2 className="text-2xl font-bold text-white mb-4">The Story</h2>
+                        <div className="space-y-4 text-slate-400 leading-relaxed">
                             <p>
                                 I&apos;m Bernady Krzysztof, an indie game developer who has created more than 35 games while experimenting with mechanics, environments, gameplay systems, and visual styles using Unity 3D.
                             </p>
@@ -88,67 +93,74 @@ export default function AboutPage() {
                             <p>
                                 Instead of starting from zero, explore my projects, understand how things work, modify them, and use what you learn to build something of your own.
                             </p>
-                            <p className="text-gray-900 font-semibold">
+                            <p className="text-slate-200 font-semibold">
                                 Keep creating. Keep experimenting. Ship your game.
                             </p>
                         </div>
                     </div>
 
-                    <div className="w-full md:w-72 flex-shrink-0 bg-[#ffffff] border border-[#e5e7eb] rounded-2xl p-6">
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-[#f5f6f8]">
-                            <Image src="/story.jpg" alt="Bernady Krzysztof Unity game development projects" fill className="object-cover opacity-90" />
+                    <div className="w-full md:w-72 flex-shrink-0 bg-[#13161d] border border-[#1f2433] rounded-2xl p-6">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-[#0d0f14] border border-[#1f2433]">
+                            <Image src="/bernard1.jpeg" alt="Bernady Krzysztof at GDS2027" fill className="object-cover object-top" />
                         </div>
-                        <p className="text-sm text-gray-500 leading-relaxed">
+                        <p className="text-sm text-slate-500 leading-relaxed">
                             Unity projects, asset listings, scripts, prototypes, and practical experiments for indie developers.
                         </p>
                     </div>
                 </div>
 
+                {/* Values */}
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-8">What You&apos;ll Find Here</h2>
+                    <h2 className="text-2xl font-bold text-white mb-8">What You&apos;ll Find Here</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {values.map(({ icon: Icon, title, desc }) => (
-                            <div key={title} className="bg-[#ffffff] border border-[#e5e7eb] rounded-2xl p-6 flex gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-[#e85d75]/10 border border-[#e85d75]/20 flex items-center justify-center flex-shrink-0">
-                                    <Icon size={18} className="text-[#e85d75]" />
+                            <div key={title} className="bg-[#13161d] border border-[#1f2433] hover:border-[#2d3348] rounded-2xl p-6 flex gap-4 transition-colors">
+                                <div className="w-10 h-10 rounded-xl bg-[#39ff8a]/10 border border-[#39ff8a]/20 flex items-center justify-center flex-shrink-0">
+                                    <Icon size={18} className="text-[#39ff8a]" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
-                                    <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                                    <h3 className="font-semibold text-white mb-1">{title}</h3>
+                                    <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-[#fff1f3] to-[#1c1a2e] border border-[#e85d75]/20 rounded-3xl p-10 text-center">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-3">Start Building Your Game</h2>
-                    <p className="text-gray-500 mb-7 max-w-md mx-auto">
-                        Explore Unity resources, learn from real projects, and support the next game-development experiment.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-                        <Link
-                            href="/"
-                            className="inline-flex items-center gap-2 bg-[#e85d75] hover:bg-[#c93f5b] text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#e85d75]/20"
-                        >
-                            <Download size={16} />
-                            Browse Resources
-                        </Link>
-                        <a
-                            href="https://buymeacoffee.com/bernadykrz"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-[#FFDD00] hover:bg-[#f0cf00] text-[#0D0C22] font-semibold px-6 py-3 rounded-xl transition-all"
-                        >
-                            <Coffee size={16} />
-                            Support My Work
-                        </a>
+                {/* CTA */}
+                <div className="bg-[#13161d] border border-[#1f2433] rounded-3xl p-10 text-center relative overflow-hidden">
+                    <div className="absolute inset-0 grid-bg opacity-40" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#39ff8a]/5 blur-[80px] rounded-full pointer-events-none" />
+                    <div className="relative">
+                        <h2 className="text-2xl font-bold text-white mb-3">Start Building Your Game</h2>
+                        <p className="text-slate-500 mb-7 max-w-md mx-auto">
+                            Explore Unity resources, learn from real projects, and support the next game-development experiment.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+                            <Link
+                                href="/"
+                                className="inline-flex items-center gap-2 bg-[#39ff8a] hover:brightness-110 text-[#0d0f14] font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#39ff8a]/20 hover:scale-105"
+                            >
+                                <Download size={16} />
+                                Browse Resources
+                            </Link>
+                            <a
+                                href="https://buymeacoffee.com/bernadykrz"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-[#FFDD00] hover:brightness-105 text-[#0d0f14] font-bold px-6 py-3 rounded-xl transition-all"
+                            >
+                                <Coffee size={16} />
+                                Support My Work
+                            </a>
+                        </div>
+                        <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#39ff8a]">
+                            <Gamepad2 size={15} />
+                            Help more indie developers go from an idea to a playable game
+                        </p>
                     </div>
-                    <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#e85d75]">
-                        <Flame size={15} />
-                        Help more indie developers go from an idea to a playable game
-                    </p>
                 </div>
+
             </div>
         </div>
     )

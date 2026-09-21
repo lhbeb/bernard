@@ -4,198 +4,47 @@ import { Suspense, useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Loader2, Ticket, Zap, Box } from 'lucide-react'
+import { Loader2, Ticket, Zap, Box, ArrowUpRight } from 'lucide-react'
 import { supabase, Product } from '@/lib/supabase'
 
 function ProductCard({ product }: { product: Product }) {
     const isFree = !product.price || product.price === 0
-
     return (
-        <Link
-            href={`/product/${product.id}`}
-            className="group bg-[#13161d] border border-[#1f2433] hover:border-[#39ff8a]/40 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#39ff8a]/8 hover:-translate-y-1"
-        >
-            {/* Thumbnail */}
-            <div className="relative w-full aspect-[4/3] bg-[#0d0f14] overflow-hidden">
-                {product.thumbnail_url ? (
-                    <Image
-                        src={product.thumbnail_url}
-                        alt={product.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                ) : (
-                    <div className="absolute inset-0 grid-bg flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-2xl bg-[#39ff8a]/8 border border-[#39ff8a]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <Box size={28} className="text-[#39ff8a]/50" />
-                        </div>
-                    </div>
-                )}
-                {/* Price badge overlay */}
-                <div className="absolute top-3 right-3">
-                    <span className={`inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full ${
-                        isFree
-                            ? 'bg-[#39ff8a]/15 text-[#39ff8a] border border-[#39ff8a]/25'
-                            : 'bg-[#fbbf24]/15 text-[#fbbf24] border border-[#fbbf24]/25'
-                    }`}>
-                        {isFree ? <><Zap size={9} /> Free</> : <><Ticket size={9} /> ${product.price}</>}
-                    </span>
-                </div>
+        <Link href={`/product/${product.id}`} className="group card-surface overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10">
+            <div className="relative w-full aspect-[4/3] bg-[var(--ink-soft)] overflow-hidden">
+                {product.thumbnail_url ? <Image src={product.thumbnail_url} alt={product.title} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /> : <div className="absolute inset-0 grid-bg flex items-center justify-center"><div className="w-16 h-16 rounded-2xl bg-[var(--signal-lime)]/10 border border-[var(--signal-lime)]/25 flex items-center justify-center"><Box size={28} className="text-[var(--signal-lime)]" /></div></div>}
+                <div className="absolute top-3 left-3"><span className={`tag ${isFree ? 'tag-free' : 'tag-premium'}`}>{isFree ? <><Zap size={10} /> Free</> : <><Ticket size={10} /> ${product.price}</>}</span></div>
             </div>
-
-            {/* Info */}
-            <div className="p-4">
-                <h3 className="font-semibold text-sm text-slate-200 group-hover:text-[#39ff8a] transition-colors line-clamp-1 mb-1.5">
-                    {product.title}
-                </h3>
-                {product.description && (
-                    <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                        {product.description}
-                    </p>
-                )}
-                <div className="flex items-center justify-between mt-3 pt-3 border-t border-[#1f2433]">
-                    <span className="text-xs font-mono text-[#39ff8a]/60 group-hover:text-[#39ff8a] transition-colors">
-                        View →
-                    </span>
-                    <span className="text-[10px] text-slate-600 font-mono">Unity 3D</span>
-                </div>
+            <div className="p-5">
+                <h3 className="font-display font-bold text-base text-[var(--ink)] group-hover:text-[var(--cobalt)] transition-colors line-clamp-2 mb-2">{product.title}</h3>
+                {product.description && <p className="text-sm text-[var(--muted-text)] line-clamp-2 leading-relaxed">{product.description}</p>}
+                <div className="flex items-center justify-between mt-5 pt-4 border-t border-[var(--line)]"><span className="text-sm font-semibold text-[var(--ink)] group-hover:text-[var(--cobalt)] transition-colors">{isFree ? 'Download free' : 'See what’s included'} <ArrowUpRight size={13} className="inline ml-1" /></span><span className="inline-flex items-center gap-1.5 text-[10px] text-[var(--muted-text)] mono uppercase tracking-wide"><Image src="/unitylogo.svg" alt="Unity" width={14} height={14} className="object-contain" /> Unity package</span></div>
             </div>
         </Link>
     )
 }
 
-function ProductGridContent({
-    limit,
-    title = "Latest Unity Resources",
-    subtitle = "Game assets, scripts, templates, and experiments for indie developers",
-    filterType = 'all'
-}: {
-    limit?: number
-    title?: string
-    subtitle?: string
-    filterType?: 'all' | 'free' | 'paid'
-}) {
+function ProductGridContent({ limit, title = 'Latest Unity resources', subtitle = 'Practical building blocks for indie developers who want to prototype faster.', filterType = 'all' }: { limit?: number; title?: string; subtitle?: string; filterType?: 'all' | 'free' | 'paid' }) {
     const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState(true)
     const searchParams = useSearchParams()
     const query = searchParams.get('q')?.toLowerCase().trim() ?? ''
-
-    useEffect(() => {
-        async function fetchProducts() {
-            setLoading(true)
-            const { data, error } = await supabase
-                .from('products')
-                .select('*')
-                .order('created_at', { ascending: false })
-            if (!error && data) setProducts(data)
-            setLoading(false)
-        }
-        fetchProducts()
-    }, [])
-
-    let filtered = query
-        ? products.filter(p =>
-            p.title.toLowerCase().includes(query) ||
-            (p.description && p.description.toLowerCase().includes(query))
-        )
-        : products
-
+    useEffect(() => { async function fetchProducts() { setLoading(true); const { data } = await supabase.from('products').select('*').order('created_at', { ascending: false }); if (data) setProducts(data); setLoading(false) } fetchProducts() }, [])
+    let filtered = query ? products.filter(p => p.title.toLowerCase().includes(query) || (p.description && p.description.toLowerCase().includes(query))) : products
     if (limit && !query) filtered = filtered.slice(0, limit)
     if (filterType === 'free') filtered = filtered.filter(p => !p.price || p.price === 0)
     else if (filterType === 'paid') filtered = filtered.filter(p => p.price && p.price > 0)
-
     const freeProducts = filtered.filter(p => !p.price || p.price === 0)
     const paidProducts = filtered.filter(p => p.price && p.price > 0)
     const showFree = filterType === 'all' || filterType === 'free'
     const showPaid = filterType === 'all' || filterType === 'paid'
-
-    return (
-        <section id="product-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            {/* Section Header */}
-            <div className="flex items-center justify-between mb-8">
-                <div>
-                    <h2 className="text-2xl font-bold text-white">
-                        {query ? `Results for "${query}"` : title}
-                    </h2>
-                    <p className="text-sm text-slate-500 mt-1">
-                        {query ? `${filtered.length} resource${filtered.length !== 1 ? 's' : ''} found` : subtitle}
-                    </p>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-[#13161d] border border-[#1f2433] rounded-full px-3 py-1.5 font-mono">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#39ff8a] animate-pulse" />
-                    {products.length} listed
-                </div>
-            </div>
-
-            {/* Loading */}
-            {loading && (
-                <div className="text-center py-20 text-slate-500 flex flex-col items-center">
-                    <Loader2 className="animate-spin mb-4 text-[#39ff8a]" size={28} />
-                    <p className="text-sm font-mono">Loading Unity resources...</p>
-                </div>
-            )}
-
-            {/* No results */}
-            {!loading && filtered.length === 0 && (
-                <div className="text-center py-20 border border-[#1f2433] border-dashed rounded-3xl bg-[#13161d]/50">
-                    <Box size={40} className="mx-auto mb-4 text-slate-600" />
-                    <p className="text-lg font-bold text-white mb-1">No assets found</p>
-                    <p className="text-sm text-slate-500">
-                        {query ? "Try a different keyword or browse all resources." : "No Unity resources have been listed yet."}
-                    </p>
-                </div>
-            )}
-
-            {/* Free Products */}
-            {!loading && showFree && freeProducts.length > 0 && (
-                <div id="freebies" className="mb-12 pt-8 -mt-8">
-                    <div className="flex items-center gap-2 mb-5">
-                        <Zap size={15} className="text-[#39ff8a]" />
-                        <h3 className="text-base font-bold text-white">Free Assets</h3>
-                        <span className="text-xs text-slate-500 bg-[#13161d] border border-[#1f2433] rounded-full px-2 py-0.5 font-mono">{freeProducts.length}</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {freeProducts.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            {/* Paid Products */}
-            {!loading && showPaid && paidProducts.length > 0 && (
-                <div id="premium" className="mb-12 pt-8 -mt-8">
-                    <div className="flex items-center gap-2 mb-5">
-                        <Ticket size={15} className="text-[#fbbf24]" />
-                        <h3 className="text-base font-bold text-white">Premium Resources</h3>
-                        <span className="text-xs text-slate-500 bg-[#13161d] border border-[#1f2433] rounded-full px-2 py-0.5 font-mono">{paidProducts.length}</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {paidProducts.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
-                    </div>
-                </div>
-            )}
-        </section>
-    )
+    return <section id="product-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8"><div><p className="mono text-xs uppercase tracking-[.14em] text-[var(--muted-text)] mb-3">{query ? 'Search results' : 'The shop'}</p><h2 className="section-title">{query ? `Results for “${query}”` : title}</h2><p className="text-[var(--muted-text)] mt-2 max-w-xl">{query ? `${filtered.length} resource${filtered.length !== 1 ? 's' : ''} found` : subtitle}</p></div><div className="tag tag-dark self-start sm:self-auto"><span className="w-1.5 h-1.5 rounded-full bg-[var(--signal-lime)]" /> {products.length} listed</div></div>
+        {loading && <div className="text-center py-20 text-[var(--muted-text)] flex flex-col items-center"><Loader2 className="animate-spin mb-4 text-[var(--cobalt)]" size={28} /><p className="text-sm mono">Loading the workshop...</p></div>}
+        {!loading && filtered.length === 0 && <div className="text-center py-20 border border-[var(--line)] border-dashed rounded-3xl bg-[var(--paper-bright)]"><Box size={40} className="mx-auto mb-4 text-[var(--muted-text)]" /><p className="text-lg font-bold mb-1">No resources found</p><p className="text-sm text-[var(--muted-text)]">Try a different keyword or browse the full shop.</p></div>}
+        {!loading && showFree && freeProducts.length > 0 && <div id="freebies" className="mb-16 scroll-mt-24"><div className="flex items-center gap-3 mb-5"><span className="w-8 h-8 rounded-full bg-[var(--signal-lime)]/25 flex items-center justify-center"><Zap size={15} /></span><div><h3 className="font-display text-xl font-bold">Start with a free building block</h3><p className="text-sm text-[var(--muted-text)]">Small resources for testing an idea without starting from empty.</p></div><span className="tag tag-dark ml-auto">{freeProducts.length}</span></div><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">{freeProducts.map(p => <ProductCard key={p.id} product={p} />)}</div></div>}
+        {!loading && showPaid && paidProducts.length > 0 && <div id="premium" className="mb-16 scroll-mt-24"><div className="flex items-center gap-3 mb-5"><span className="w-8 h-8 rounded-full bg-[var(--amber)]/20 flex items-center justify-center"><Ticket size={15} className="text-[var(--amber)]" /></span><div><h3 className="font-display text-xl font-bold">Go deeper with complete systems</h3><p className="text-sm text-[var(--muted-text)]">Larger foundations for gameplay, tools, and production workflows.</p></div><span className="tag tag-dark ml-auto">{paidProducts.length}</span></div><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">{paidProducts.map(p => <ProductCard key={p.id} product={p} />)}</div></div>}
+    </section>
 }
 
-export default function ProductGrid(props: {
-    limit?: number
-    title?: string
-    subtitle?: string
-    filterType?: 'all' | 'free' | 'paid'
-}) {
-    return (
-        <Suspense fallback={
-            <div className="text-center py-20 text-slate-500 flex flex-col items-center">
-                <Loader2 className="animate-spin mb-4 text-[#39ff8a]" size={28} />
-                <p className="text-sm font-mono">Loading assets...</p>
-            </div>
-        }>
-            <ProductGridContent {...props} />
-        </Suspense>
-    )
-}
+export default function ProductGrid(props: { limit?: number; title?: string; subtitle?: string; filterType?: 'all' | 'free' | 'paid' }) { return <Suspense fallback={<div className="text-center py-20 text-[var(--muted-text)]"><Loader2 className="animate-spin mx-auto mb-4 text-[var(--cobalt)]" size={28} /><p className="text-sm mono">Loading the shop...</p></div>}><ProductGridContent {...props} /></Suspense> }

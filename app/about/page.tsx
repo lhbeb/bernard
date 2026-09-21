@@ -145,7 +145,7 @@ export default function AboutPage() {
                                 Browse Resources
                             </Link>
                             <a
-                                href="https://buymeacoffee.com/bernadykrz"
+                                href="https://buymeacoffee.com/bernadykrzysztof"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 bg-[#FFDD00] hover:brightness-105 text-[#0d0f14] font-bold px-6 py-3 rounded-xl transition-all"

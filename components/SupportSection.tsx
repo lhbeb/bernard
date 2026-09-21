@@ -1,106 +1,19 @@
 import Image from 'next/image'
-import { Coffee, ExternalLink, Gamepad2, Video, PenTool, Library, Sparkles } from 'lucide-react'
+import { ExternalLink, PenTool, Video, Library, Sparkles } from 'lucide-react'
 
 export default function SupportSection() {
-    return (
-        <section id="support" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-            <div className="relative overflow-hidden bg-[#13161d] border border-[#1f2433] rounded-[2.5rem] p-8 sm:p-12 lg:p-16">
-
-                {/* Decorative glows */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-[#39ff8a]/5 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#a855f7]/5 rounded-full blur-[80px] pointer-events-none" />
-
-                <div className="relative flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
-
-                    {/* Text side */}
-                    <div className="flex-1 w-full">
-                        {/* Badge */}
-                        <div className="inline-flex items-center gap-2 bg-[#39ff8a]/10 border border-[#39ff8a]/25 rounded-full px-4 py-1.5 mb-8">
-                            <Gamepad2 size={14} className="text-[#39ff8a]" />
-                            <span className="text-xs font-bold text-[#39ff8a] uppercase tracking-wider">Support Indie Game Development</span>
-                        </div>
-
-                        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-[1.1]">
-                            Help Me Build More{' '}
-                            <span className="text-gradient">
-                                Playable Worlds
-                            </span>
-                        </h2>
-
-                        <div className="space-y-5 text-slate-400 text-base leading-relaxed mb-10 max-w-2xl">
-                            <p>
-                                Hey, I&apos;m Bernady Krzysztof, an indie game developer passionate about turning ideas into playable worlds. Over the years, I&apos;ve created more than 35 games using Unity 3D.
-                            </p>
-                            <p>
-                                I share Unity projects, game assets, templates, scripts, experiments, and downloadable resources to help other developers learn faster and bring their own games to life. Your support helps me keep building and sharing.
-                            </p>
-                            <p className="text-slate-200 font-semibold">
-                                If my projects save you time, teach you something new, or help you finish your game, you can support my work and help me create the next resource.
-                            </p>
-                        </div>
-
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-3 mb-10">
-                            {[
-                                { icon: PenTool,   label: 'Unity 3D projects' },
-                                { icon: Video,     label: 'Game mechanics' },
-                                { icon: Library,   label: 'Scripts & templates' },
-                                { icon: Sparkles,  label: 'Indie dev experiments' },
-                            ].map(item => {
-                                const Icon = item.icon
-                                return (
-                                    <div key={item.label} className="inline-flex items-center gap-2 bg-[#0d0f14] border border-[#2d3348] rounded-xl px-4 py-2 text-sm text-slate-400 font-semibold">
-                                        <Icon size={14} className="text-[#39ff8a]" />
-                                        {item.label}
-                                    </div>
-                                )
-                            })}
-                        </div>
-
-                        {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <a
-                                href="https://buymeacoffee.com/bernadykrz"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                id="support-buymeacoffee-btn"
-                                className="inline-flex items-center justify-center gap-2 bg-[#FFDD00] hover:brightness-105 text-[#0d0f14] font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-[#FFDD00]/20 hover:scale-105"
-                            >
-                                <Coffee size={18} />
-                                Support My Work
-                            </a>
-                            <a
-                                href="/collections"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                id="support-shop-btn"
-                                className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-[#1f2433] border border-[#2d3348] hover:border-[#39ff8a]/40 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-xl transition-all"
-                            >
-                                <ExternalLink size={18} />
-                                Explore Projects
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Photo */}
-                    <div className="relative w-full lg:w-[400px] xl:w-[450px] aspect-square lg:aspect-[4/5] flex-shrink-0">
-                        {/* Offset neon glow background */}
-                        <div className="absolute inset-0 bg-[#39ff8a]/10 rounded-[2.5rem] transform translate-x-4 translate-y-4 -z-10" />
-
-                        <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-2 border-[#39ff8a]/30 shadow-2xl shadow-black/40">
-                            <Image
-                                src="/bernard1.jpeg"
-                                alt="Bernady Krzysztof speaking at GDS2027 Game Dev Summit"
-                                fill
-                                className="object-cover object-top"
-                                sizes="(max-width: 1024px) 100vw, 450px"
-                                quality={95}
-                            />
-                        </div>
-                    </div>
-
-                </div>
+    const items = [
+        { icon: PenTool, label: 'Unity prototypes' },
+        { icon: Video, label: 'Game mechanics' },
+        { icon: Library, label: 'Scripts and templates' },
+        { icon: Sparkles, label: 'Indie experiments' },
+    ]
+    return <section id="support" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div className="bg-[var(--ink)] text-white rounded-[2rem] overflow-hidden p-8 sm:p-12 lg:p-16">
+            <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+                <div className="flex-1 w-full"><p className="mono text-xs uppercase tracking-[.14em] text-[var(--signal-lime)] mb-4">The maker’s note</p><h2 className="font-display text-3xl sm:text-5xl font-bold leading-tight mb-6">Support the next experiment.</h2><div className="space-y-4 text-white/65 leading-relaxed max-w-2xl mb-8"><p>I’m Bernady, an indie game developer building with Unity. BernardKrz.shop is where I share the systems, starter projects, and experiments I make while turning ideas into playable prototypes.</p><p>Your support helps fund new builds, free starter resources, documentation, and the time needed to turn useful experiments into products other developers can use.</p></div><div className="flex flex-wrap gap-2 mb-9">{items.map(({ icon: Icon, label }) => <span key={label} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-sm text-white/70"><Icon size={14} className="text-[var(--signal-lime)]" />{label}</span>)}</div><div className="flex flex-col sm:flex-row gap-3"><a href="https://buymeacoffee.com/bernadykrzysztof" target="_blank" rel="noopener noreferrer" aria-label="Support Bernard on Buy Me a Coffee" className="inline-flex items-center justify-center w-[260px] h-16 overflow-hidden rounded-full bg-[#fffdf8] hover:bg-white transition-all shadow-lg shadow-black/20"><Image src="/buymeacoffeelogo2.png" alt="Buy Me a Coffee" width={240} height={58} className="w-[240px] h-[58px] object-contain scale-[1.28]" /></a><a href="/collections" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 text-white font-semibold px-6 py-3 hover:bg-white/10 transition-colors"><ExternalLink size={16} /> Explore the shop</a></div></div>
+                <div className="relative w-full lg:w-[360px] aspect-[4/5] flex-shrink-0"><div className="absolute -inset-3 rounded-[1.5rem] border border-[var(--signal-lime)]/30 translate-x-3 translate-y-3" /><div className="relative w-full h-full rounded-[1.5rem] overflow-hidden border border-white/15"><Image src="/bernard1.jpeg" alt="Bernady Krzysztof building Unity projects" fill className="object-cover object-top" sizes="360px" /></div></div>
             </div>
-        </section>
-    )
+        </div>
+    </section>
 }

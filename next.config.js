@@ -43,12 +43,12 @@ const nextConfig = {
         return [
             {
                 source: '/bmc',
-                destination: 'https://buymeacoffee.com/bernadykrz',
+                destination: 'https://buymeacoffee.com/bernadykrzysztof',
                 permanent: false,
             },
             {
                 source: '/shop',
-                destination: 'https://buymeacoffee.com/bernadykrz',
+                destination: 'https://buymeacoffee.com/bernadykrzysztof',
                 permanent: false,
             },
         ]

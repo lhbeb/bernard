@@ -30,16 +30,12 @@ export default function ProfileHero() {
                                 Learn game development. Start building.
                             </h1>
                             <p className="mt-6 text-lg sm:text-xl leading-relaxed text-white/65 max-w-2xl">
-                                I teach game development with practical Unity source code, clear explanations, and direct help from someone who builds games.
+                                I’m a Polish-Israeli game developer currently based in Tel Aviv. I teach game development with practical Unity source code, clear explanations, and direct help from someone who builds games.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3 mt-8">
                                 <a href="#freebies" className="btn-primary"><span>Get free source code</span><ArrowUpRight size={16} /></a>
                                 <a href="#premium" className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold border border-white/20 text-white hover:bg-white/10 transition-colors"><span>Shop premium source code</span><ArrowUpRight size={16} /></a>
                             </div>
-                            <a href="https://buymeacoffee.com/bernadykrzysztof" target="_blank" rel="noopener noreferrer" aria-label="Support Bernard on Buy Me a Coffee" className="inline-flex items-center gap-3 mt-5 rounded-full bg-[#fffdf8] text-[#111318] px-5 py-3 hover:bg-white transition-all shadow-lg shadow-black/20">
-                                <span className="w-7 h-7 rounded-full bg-[#f5c400] flex items-center justify-center overflow-hidden"><Image src="/BMC1.png" alt="" width={24} height={24} className="w-5 h-5 object-contain" /></span>
-                                <span className="text-sm font-bold">Support on Buy Me a Coffee</span><ArrowUpRight size={15} />
-                            </a>
                             <div className="flex flex-wrap gap-x-7 gap-y-3 mt-10 pt-6 border-t border-white/15 text-sm text-white/55">
                                 <span><strong className="text-white">Free</strong> educational code</span>
                                 <span><strong className="text-white">Premium</strong> reskinnable foundations</span>

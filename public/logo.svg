@@ -1,7 +1,0 @@
-<svg width="520" height="112" viewBox="0 0 520 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="4" y="8" width="96" height="96" rx="28" fill="#e85d75"/>
-  <path d="M29 72.5V39.5H76.5V49.4H41.1V52.5H72.3V61.7H41.1V62.8H78V72.5H29Z" fill="white"/>
-  <path d="M29 84.5H78V92H29V84.5Z" fill="#ffe4e9"/>
-  <text x="120" y="51" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Bernady</text>
-  <text x="120" y="83" fill="#e85d75" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Krzysztof</text>
-</svg>

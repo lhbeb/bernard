@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, Zap } from 'lucide-react'
-import LinkedInLink from './LinkedInLink'
+import { Instagram } from 'lucide-react'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/bernardy_games'
 
@@ -24,12 +23,11 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div>
                         <div className="flex items-center gap-2.5 mb-4">
-                            <div className="w-9 h-9 rounded-xl bg-[#b8f23a] text-[#111318] flex items-center justify-center font-display font-bold text-sm">BK</div>
-                            <span className="font-display font-bold text-white">BernardKrz<span className="text-[#b8f23a]">.shop</span></span>
+                            <div className="rounded-xl bg-[#fffdf8] px-3 py-2"><Image src="/bernadylogo.svg" alt="Bernady Krzysztof" width={156} height={34} className="w-[156px] h-[34px] object-contain" /></div>
                         </div>
                         <p className="text-sm text-white/55 leading-relaxed max-w-xs mb-5">Learn game development from working Unity source code, premium foundations, and direct coaching.</p>
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/15"><Image src="/avatar.png" alt="Bernady Krzysztof profile photo" width={40} height={40} className="object-cover w-full h-full" /></div>
+                            <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/15"><Image src="/bernard22.png" alt="Bernady Krzysztof profile photo" width={40} height={40} className="object-cover object-top w-full h-full" /></div>
                             <div><div className="text-xs font-semibold text-white/85">Bernady Krzysztof</div><div className="text-[11px] text-white/45">Indie game developer</div></div>
                         </div>
                     </div>
@@ -44,11 +42,9 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p className="text-xs text-white/35 mono">© 2026 BernardKrz.shop. All rights reserved.</p>
+                    <p className="text-xs text-white/35 mono">© 2026 BernadyKrz.shop. All rights reserved.</p>
                     <div className="flex items-center gap-4">
-                        <LinkedInLink className="text-white/40 hover:text-white transition-colors" />
                         <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Bernard Games on Instagram" className="text-white/40 hover:text-[#f5a3c7] transition-colors"><Instagram size={18} /></a>
-                        <p className="text-xs text-white/35 flex items-center gap-1">Made with <Zap size={11} className="text-[#b8f23a]" /> for indie devs</p>
                     </div>
                 </div>
             </div>

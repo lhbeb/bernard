@@ -56,16 +56,16 @@ export default function ProductPage() {
 
     if (loading) return (
         <div className="min-h-screen flex items-center justify-center text-slate-500">
-            <Loader2 className="animate-spin mr-3 text-[#39ff8a]" size={24} />
+            <Loader2 className="animate-spin mr-3 text-[#b8f23a]" size={24} />
             <span className="font-mono text-sm">Loading product...</span>
         </div>
     )
 
     if (!product) return (
         <div className="min-h-screen flex flex-col items-center justify-center text-slate-500 gap-4">
-            <Box size={48} className="opacity-30 text-[#39ff8a]" />
+            <Box size={48} className="opacity-30 text-[#b8f23a]" />
             <p className="text-lg font-medium text-white">{error || 'Product not found.'}</p>
-            <Link href="/" className="text-sm text-[#39ff8a] hover:underline">← Back to homepage</Link>
+            <Link href="/" className="text-sm text-[#b8f23a] hover:underline">← Back to homepage</Link>
         </div>
     )
 
@@ -76,7 +76,7 @@ export default function ProductPage() {
 
             {/* Breadcrumb */}
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-                <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-[#39ff8a] transition-colors mb-8">
+                <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-[#b8f23a] transition-colors mb-8">
                     <ArrowLeftCircle size={16} /> Back to Products
                 </Link>
             </div>
@@ -91,8 +91,8 @@ export default function ProductPage() {
                                 <Image src={activeImage} alt={product.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" priority />
                             ) : (
                                 <div className="absolute inset-0 grid-bg flex items-center justify-center">
-                                    <div className="w-24 h-24 rounded-3xl bg-[#39ff8a]/8 border border-[#39ff8a]/20 flex items-center justify-center">
-                                        <Box size={44} className="text-[#39ff8a]/40" />
+                                    <div className="w-24 h-24 rounded-3xl bg-[#b8f23a]/8 border border-[#b8f23a]/20 flex items-center justify-center">
+                                        <Box size={44} className="text-[#b8f23a]/40" />
                                     </div>
                                 </div>
                             )}
@@ -102,7 +102,7 @@ export default function ProductPage() {
                             <div className="flex gap-3 overflow-x-auto pb-2 px-1">
                                 {product.images.map((img, idx) => (
                                     <button key={idx} onClick={() => setActiveImage(img)}
-                                        className={`relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 transition-all ${activeImage === img ? 'border-[#39ff8a] shadow-md shadow-[#39ff8a]/20' : 'border-[#1f2433] hover:border-[#2d3348]'}`}
+                                        className={`relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 transition-all ${activeImage === img ? 'border-[#b8f23a] shadow-md shadow-[#b8f23a]/20' : 'border-[#1f2433] hover:border-[#2d3348]'}`}
                                     >
                                         <Image src={img} alt={`Preview ${idx + 1}`} fill className="object-cover" />
                                     </button>
@@ -117,7 +117,7 @@ export default function ProductPage() {
 
                         <div className="mb-6">
                             {isFree ? (
-                                <div className="inline-flex items-center gap-2 bg-[#39ff8a]/10 border border-[#39ff8a]/30 text-[#39ff8a] text-lg font-bold px-4 py-2 rounded-xl">
+                                <div className="inline-flex items-center gap-2 bg-[#b8f23a]/10 border border-[#b8f23a]/30 text-[#b8f23a] text-lg font-bold px-4 py-2 rounded-xl">
                                     <Zap size={18} /> Free
                                 </div>
                             ) : (
@@ -145,7 +145,7 @@ export default function ProductPage() {
                                         setShowCheckout(true)
                                     }
                                 }}
-                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#39ff8a] hover:brightness-110 text-[#0d0f14] font-bold px-8 py-4 rounded-xl transition-all text-sm shadow-lg shadow-[#39ff8a]/20 hover:scale-105"
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#b8f23a] hover:brightness-110 text-[#0d0f14] font-bold px-8 py-4 rounded-xl transition-all text-sm shadow-lg shadow-[#b8f23a]/20 hover:scale-105"
                             >
                                 {isFree ? <><Download size={17} /> Download Free</> : <><ShoppingCart size={17} /> Buy Now — ${product.price}</>}
                             </button>
@@ -155,7 +155,7 @@ export default function ProductPage() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {['Complete Unity source code', 'Easy to customize', 'Clean commented codebase', 'Regular updates included'].map((f) => (
                                     <div key={f} className="flex items-center gap-2 text-sm text-slate-500">
-                                        <CheckCircle size={14} className="text-[#39ff8a] flex-shrink-0" />
+                                        <CheckCircle size={14} className="text-[#b8f23a] flex-shrink-0" />
                                         {f}
                                     </div>
                                 ))}
@@ -173,8 +173,8 @@ export default function ProductPage() {
 
                         {checkoutStep === 'processing' && (
                             <div className="p-12 text-center">
-                                <div className="w-16 h-16 rounded-full bg-[#39ff8a]/10 border border-[#39ff8a]/30 flex items-center justify-center mx-auto mb-6">
-                                    <Loader2 size={32} className="text-[#39ff8a] animate-spin" />
+                                <div className="w-16 h-16 rounded-full bg-[#b8f23a]/10 border border-[#b8f23a]/30 flex items-center justify-center mx-auto mb-6">
+                                    <Loader2 size={32} className="text-[#b8f23a] animate-spin" />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-2">Processing payment...</h3>
                                 <p className="text-slate-500 text-sm">Please wait while we confirm your order.</p>
@@ -183,8 +183,8 @@ export default function ProductPage() {
 
                         {checkoutStep === 'done' && (
                             <div className="p-12 text-center">
-                                <div className="w-16 h-16 rounded-full bg-[#39ff8a]/10 border border-[#39ff8a]/30 flex items-center justify-center mx-auto mb-6">
-                                    <CheckCircle size={32} className="text-[#39ff8a]" />
+                                <div className="w-16 h-16 rounded-full bg-[#b8f23a]/10 border border-[#b8f23a]/30 flex items-center justify-center mx-auto mb-6">
+                                    <CheckCircle size={32} className="text-[#b8f23a]" />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-2">Payment successful!</h3>
                                 <p className="text-slate-500 text-sm">Redirecting to your order confirmation...</p>
@@ -195,8 +195,8 @@ export default function ProductPage() {
                             <>
                                 <div className="flex items-center justify-between px-6 py-5 border-b border-[#1f2433]">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-xl bg-[#39ff8a]/10 border border-[#39ff8a]/25 flex items-center justify-center">
-                                            <CreditCard size={18} className="text-[#39ff8a]" />
+                                        <div className="w-10 h-10 rounded-xl bg-[#b8f23a]/10 border border-[#b8f23a]/25 flex items-center justify-center">
+                                            <CreditCard size={18} className="text-[#b8f23a]" />
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-white text-sm">Checkout</h3>
@@ -226,7 +226,7 @@ export default function ProductPage() {
                                                     value={(form as any)[key]}
                                                     onChange={e => setForm({ ...form, [key]: key === 'card' ? formatCard(e.target.value) : e.target.value })}
                                                     placeholder={placeholder}
-                                                    className={`w-full bg-[#0d0f14] border border-[#1f2433] focus:border-[#39ff8a]/60 rounded-xl pl-10 pr-4 py-3 text-slate-200 placeholder-slate-600 outline-none transition-colors text-sm ${mono ? 'font-mono' : ''}`}
+                                                    className={`w-full bg-[#0d0f14] border border-[#1f2433] focus:border-[#b8f23a]/60 rounded-xl pl-10 pr-4 py-3 text-slate-200 placeholder-slate-600 outline-none transition-colors text-sm ${mono ? 'font-mono' : ''}`}
                                                 />
                                             </div>
                                         </div>
@@ -244,13 +244,13 @@ export default function ProductPage() {
                                                     value={(form as any)[key]}
                                                     onChange={e => setForm({ ...form, [key]: key === 'expiry' ? formatExpiry(e.target.value) : e.target.value.replace(/\D/g, '').slice(0, max) })}
                                                     placeholder={placeholder} maxLength={max}
-                                                    className="w-full bg-[#0d0f14] border border-[#1f2433] focus:border-[#39ff8a]/60 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 outline-none transition-colors text-sm font-mono"
+                                                    className="w-full bg-[#0d0f14] border border-[#1f2433] focus:border-[#b8f23a]/60 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 outline-none transition-colors text-sm font-mono"
                                                 />
                                             </div>
                                         ))}
                                     </div>
 
-                                    <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#39ff8a] hover:brightness-110 text-[#0d0f14] font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#39ff8a]/20 text-sm mt-2">
+                                    <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#b8f23a] hover:brightness-110 text-[#0d0f14] font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#b8f23a]/20 text-sm mt-2">
                                         <Lock size={14} /> Pay ${product.price}
                                     </button>
                                     <p className="text-[11px] text-slate-600 text-center flex items-center justify-center gap-1">

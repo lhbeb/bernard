@@ -161,7 +161,7 @@ export default function ProfileHero() {
                             <>
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-[#39ff8a]/30 flex-shrink-0">
-                                        <Image src="/story.jpg" alt="Bernady Krzysztof" width={48} height={48} className="object-cover w-full h-full" />
+                                        <Image src="/avatarpng.jpg" alt="Bernady Krzysztof" width={48} height={48} className="object-cover w-full h-full" />
                                     </div>
                                     <div>
                                         <div className="font-bold text-white text-sm">Bernady Krzysztof</div>

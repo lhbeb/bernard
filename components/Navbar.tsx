@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Suspense, useState, useEffect } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { Menu, X, Zap, Store, Box, Home, Search } from 'lucide-react'
+import { Menu, X, Zap, Store, Box, Search, Gamepad2 } from 'lucide-react'
 import LinkedInLink from './LinkedInLink'
 
 function NavbarContent() {
@@ -14,7 +14,6 @@ function NavbarContent() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
 
-    // Sync input with URL on mount
     useEffect(() => {
         setQuery(searchParams.get('q') ?? '')
     }, [searchParams])
@@ -22,73 +21,68 @@ function NavbarContent() {
     function handleSearch(value: string) {
         setQuery(value)
         const params = new URLSearchParams(searchParams.toString())
-        if (value) {
-            params.set('q', value)
-        } else {
-            params.delete('q')
-        }
-        const target = pathname === '/' ? `/?${params}` : `/?${params}`
-        router.replace(target, { scroll: false })
+        if (value) { params.set('q', value) } else { params.delete('q') }
+        router.replace(`/?${params}`, { scroll: false })
     }
 
     return (
-        <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#f5f6f8]/90 border-b border-[#e5e7eb]">
+        <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0d0f14]/90 border-b border-[#1f2433]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 gap-4">
+
                     {/* Logo */}
-                    <Link href="/" className="flex items-center group flex-shrink-0">
-                        <Image src="/logo.svg" alt="Ballard Kelly Scott" width={144} height={43} className="h-11 w-auto group-hover:opacity-80 transition-opacity" />
+                    <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-[#39ff8a]/10 border border-[#39ff8a]/30 flex items-center justify-center">
+                            <Gamepad2 size={16} className="text-[#39ff8a]" />
+                        </div>
+                        <span className="font-bold text-white text-sm tracking-tight group-hover:text-[#39ff8a] transition-colors">
+                            Bernady<span className="text-[#39ff8a]">.</span>dev
+                        </span>
                     </Link>
 
-                    {/* Search bar - center */}
+                    {/* Search */}
                     <div className="hidden md:flex flex-1 max-w-sm mx-auto">
                         <div className="relative w-full">
-                            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                             <input
                                 id="navbar-search"
                                 type="search"
-                                placeholder="Search themes..."
+                                placeholder="Search Unity resources..."
                                 value={query}
                                 onChange={(e) => handleSearch(e.target.value)}
-                                className="w-full bg-[#ffffff] border border-[#e5e7eb] hover:border-[#d1d5db] focus:border-[#3b82f6] rounded-full pl-9 pr-4 py-2 text-sm text-gray-900 placeholder-gray-500 outline-none transition-colors"
+                                className="w-full bg-[#13161d] border border-[#1f2433] hover:border-[#2d3348] focus:border-[#39ff8a]/60 rounded-full pl-9 pr-4 py-2 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors"
                             />
                         </div>
                     </div>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8">
-                        <Link href="/" className="flex items-center gap-1.5 font-medium group/link">
-                            <Box size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-600 group-hover/link:text-gray-900 transition-colors">Products</span>
+                    <div className="hidden md:flex items-center gap-6">
+                        <Link href="/" className="flex items-center gap-1.5 group/link">
+                            <Box size={14} className="text-slate-500 group-hover/link:text-[#39ff8a] transition-colors" />
+                            <span className="text-sm text-slate-400 group-hover/link:text-slate-200 transition-colors">Resources</span>
                         </Link>
-                        <Link href="/#freebies" className="flex items-center gap-1.5 font-medium group/link">
-                            <Zap size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-600 group-hover/link:text-gray-900 transition-colors">Freebies</span>
+                        <Link href="/#freebies" className="flex items-center gap-1.5 group/link">
+                            <Zap size={14} className="text-slate-500 group-hover/link:text-[#39ff8a] transition-colors" />
+                            <span className="text-sm text-slate-400 group-hover/link:text-slate-200 transition-colors">Free Assets</span>
                         </Link>
-                        <a
-                            href="/shop"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 font-medium group/link"
-                        >
-                            <Store size={15} className="text-gray-400 shrink-0" />
-                            <span className="text-sm text-gray-600 group-hover/link:text-gray-900 transition-colors">Shop</span>
+                        <a href="/collections" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 group/link">
+                            <Store size={14} className="text-slate-500 group-hover/link:text-[#39ff8a] transition-colors" />
+                            <span className="text-sm text-slate-400 group-hover/link:text-slate-200 transition-colors">Projects</span>
                         </a>
-                        <LinkedInLink className="flex items-center text-gray-400 hover:text-gray-900 transition-colors" />
+                        <LinkedInLink className="text-slate-500 hover:text-slate-200 transition-colors" />
                         <a
-                            href="/bmc"
+                            href="https://buymeacoffee.com/bernadykrz"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center hover:opacity-80 transition-opacity"
-                            aria-label="Buy Me a Coffee"
+                            className="inline-flex items-center gap-1.5 bg-[#39ff8a]/10 hover:bg-[#39ff8a]/20 border border-[#39ff8a]/30 text-[#39ff8a] text-xs font-bold px-4 py-2 rounded-full transition-all"
                         >
-                            <Image src="/BMC1.png" alt="Buy Me a Coffee" width={130} height={36} className="h-9 w-auto" />
+                            ☕ Support
                         </a>
                     </div>
 
-                    {/* Mobile menu button */}
+                    {/* Mobile button */}
                     <button
-                        className="md:hidden p-1.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-[#ffffff] transition-colors"
+                        className="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#13161d] transition-colors"
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -99,33 +93,36 @@ function NavbarContent() {
 
             {/* Mobile menu */}
             {menuOpen && (
-                <div className="md:hidden border-t border-[#e5e7eb] bg-[#f5f6f8]">
-                    <div className="px-4 py-3 flex flex-col gap-3">
-                        <Link href="/" className="flex items-center gap-2 py-2 group/link" onClick={() => setMenuOpen(false)}>
-                            <Box size={15} className="text-[#3b82f6] shrink-0" />
-                            <span className="text-sm text-gray-600 group-hover/link:text-gray-900 transition-colors">Products</span>
-                        </Link>
-                        <Link href="/#freebies" className="flex items-center gap-2 py-2 group/link" onClick={() => setMenuOpen(false)}>
-                            <Zap size={15} className="text-[#3b82f6] shrink-0" />
-                            <span className="text-sm text-gray-600 group-hover/link:text-gray-900 transition-colors">Freebies</span>
-                        </Link>
+                <div className="md:hidden border-t border-[#1f2433] bg-[#0d0f14]">
+                    <div className="px-4 py-4 flex flex-col gap-3">
+                        <div className="relative mb-1">
+                            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+                            <input
+                                type="search"
+                                placeholder="Search resources..."
+                                value={query}
+                                onChange={(e) => handleSearch(e.target.value)}
+                                className="w-full bg-[#13161d] border border-[#1f2433] rounded-full pl-9 pr-4 py-2 text-sm text-slate-200 placeholder-slate-500 outline-none"
+                            />
+                        </div>
+                        {[
+                            { href: '/', icon: <Box size={14} />, label: 'Resources' },
+                            { href: '/#freebies', icon: <Zap size={14} />, label: 'Free Assets' },
+                            { href: '/collections', icon: <Store size={14} />, label: 'Projects' },
+                        ].map(({ href, icon, label }) => (
+                            <Link key={href} href={href} onClick={() => setMenuOpen(false)}
+                                className="flex items-center gap-2.5 py-2 text-sm text-slate-400 hover:text-[#39ff8a] transition-colors">
+                                <span className="text-[#39ff8a]/60">{icon}</span>
+                                {label}
+                            </Link>
+                        ))}
                         <a
-                            href="/shop"
+                            href="https://buymeacoffee.com/bernadykrz"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 py-2 group/link"
-                            onClick={() => setMenuOpen(false)}
+                            className="inline-flex items-center gap-2 bg-[#39ff8a]/10 border border-[#39ff8a]/30 text-[#39ff8a] text-sm font-bold px-4 py-2.5 rounded-xl mt-1"
                         >
-                            <Store size={15} className="text-[#3b82f6] shrink-0" />
-                            <span className="text-sm text-gray-600 group-hover/link:text-gray-900 transition-colors">Shop</span>
-                        </a>
-                        <a
-                            href="/bmc"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            <Image src="/BMC1.png" alt="Buy Me a Coffee" width={120} height={34} className="h-8 w-auto" />
+                            ☕ Support My Work
                         </a>
                     </div>
                 </div>
@@ -136,7 +133,7 @@ function NavbarContent() {
 
 export default function Navbar() {
     return (
-        <Suspense fallback={<div className="h-16 bg-[#f5f6f8] border-b border-[#e5e7eb]" />}>
+        <Suspense fallback={<div className="h-16 bg-[#0d0f14] border-b border-[#1f2433]" />}>
             <NavbarContent />
         </Suspense>
     )

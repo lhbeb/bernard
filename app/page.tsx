@@ -6,23 +6,23 @@ import SocialLinks from '@/components/SocialLinks'
 export default function HomePage() {
     return (
         <div>
-            {/* Profile Hero (cover + avatar + follow) */}
+            {/* Developer profile hero */}
             <HeroSection />
 
-            {/* Freebies */}
+            {/* Free Unity resources */}
             <ProductGrid
-                title="Freebies"
-                subtitle="High-quality free themes to get you started"
+                title="Free Unity Resources"
+                subtitle="Downloadable game assets, scripts, templates, mechanics, and experiments for indie developers"
                 filterType="free"
             />
 
-            {/* Support / Donation */}
+            {/* Support Bernady's development work */}
             <SupportSection />
 
-            {/* Premium Products */}
+            {/* Premium developer resources */}
             <ProductGrid
-                title="Premium Digital Products"
-                subtitle="Premium WordPress & Shopify themes for your next project"
+                title="Premium Game Development Resources"
+                subtitle="Unity projects, systems, templates, prototypes, and production-ready resources for indie developers"
                 filterType="paid"
             />
 

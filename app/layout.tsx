@@ -5,47 +5,32 @@ import Footer from '@/components/Footer'
 import VisitorNotifier from '@/components/VisitorNotifier'
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.ballardkelly.shop'),
-    title: 'Ballard Kelly Scott - Premium Digital Themes',
-    description: 'Premium WordPress & Shopify themes crafted for creators, agencies, and startups.',
-    keywords: 'wordpress themes, shopify themes, digital products, website templates, premium themes',
-    alternates: {
-        canonical: '/',
-    },
-    icons: {
-        icon: '/favicon.png',
-    },
+    metadataBase: new URL('https://bernadykrz.me'),
+    title: 'Bernady Krzysztof | Unity Indie Game Developer',
+    description: 'Bernady Krzysztof is an indie game developer sharing Unity 3D projects, game assets, scripts, templates, prototypes, and practical resources for developers.',
+    keywords: 'Bernady Krzysztof, Unity 3D, indie game developer, Unity assets, game development scripts, game templates, prototypes',
+    alternates: { canonical: '/' },
+    icons: { icon: '/favicon.png' },
     openGraph: {
-        title: 'Ballard Kelly Scott - Premium Digital Themes',
-        description: 'Premium WordPress & Shopify themes crafted for creators, agencies, and startups.',
+        title: 'Bernady Krzysztof | Unity Indie Game Developer',
+        description: 'Unity projects, downloadable assets, scripts, systems, and experiments from indie game developer Bernady Krzysztof.',
         url: '/',
-        siteName: 'Ballard Kelly Scott',
-        images: [
-            {
-                url: '/story.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'Ballard Kelly Scott',
-            },
-        ],
+        siteName: 'Bernady Krzysztof',
+        images: [{ url: '/bernard1.jpeg', width: 1200, height: 630, alt: 'Bernady Krzysztof at GDS2027' }],
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Ballard Kelly Scott - Premium Digital Themes',
-        description: 'Premium WordPress & Shopify themes crafted for creators, agencies, and startups.',
-        images: ['/story.jpg'],
+        title: 'Bernady Krzysztof | Unity Indie Game Developer',
+        description: 'Unity projects, assets, scripts, templates, and indie game development resources from Bernady Krzysztof.',
+        images: ['/bernard1.jpeg'],
     },
 }
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className="dark">
-            <body className="min-h-screen bg-[#f5f6f8] text-gray-900 antialiased">
+        <html lang="en">
+            <body className="min-h-screen bg-[#0d0f14] text-slate-200 antialiased">
                 <VisitorNotifier />
                 <Navbar />
                 <main className="min-h-screen">

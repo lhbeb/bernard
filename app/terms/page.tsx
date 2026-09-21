@@ -14,17 +14,17 @@ export default function TermsOfServicePage() {
             <div className="space-y-8 text-gray-600 leading-relaxed">
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
-                    <p>By accessing and using Ballard Kelly Scott ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please refrain from using our website.</p>
+                    <p>By accessing and using Elizabeth Carlson ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please refrain from using our website.</p>
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Use of Audio Assets</h2>
-                    <p>The core purpose of Ballard Kelly Scott is to provide audio assets for creators. Unless explicitly stated otherwise on the individual track page, all audio assets downloaded from our platform are subject to our <Link href="/license" className="text-[#3b82f6] hover:underline">Audio Licensing Agreement</Link>, which grants you specific rights to use the audio in your projects while prohibiting the resale or redistribution of the raw files.</p>
+                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Use of Creative Assets</h2>
+                    <p>The core purpose of Elizabeth Carlson is to provide creator resources, tutorial files, presets, overlays, and video editing assets. Unless explicitly stated otherwise on the individual asset page, downloaded resources are subject to our <Link href="/license" className="text-[#3b82f6] hover:underline">Creative Asset License</Link>, which grants you specific rights to use the assets in your projects while prohibiting resale or redistribution of the raw files.</p>
                 </section>
 
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Professional Services</h2>
-                    <p>In addition to our free library, we offer professional audio production services (mixing, mastering, sound design). Any engagement for professional services constitutes a separate agreement. Payments made via third-party providers (like Buy Me a Coffee or PayPal) are subject to the terms of those platforms.</p>
+                    <p>In addition to free and premium resources, Elizabeth may offer private Zoom sessions, creative coaching, tutorials, and design or editing services. Any engagement for professional services constitutes a separate agreement. Payments made via third-party providers like Buy Me a Coffee are subject to the terms of those platforms.</p>
                 </section>
 
                 <section>
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
 
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Limitation of Liability</h2>
-                    <p>In no event shall Ballard Kelly Scott or its creator be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website or our audio assets. All assets are provided "as is" without warranty of any kind.</p>
+                    <p>In no event shall Elizabeth Carlson or its creator be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website, tutorials, or creative assets. All assets are provided "as is" without warranty of any kind.</p>
                 </section>
 
                 <section>

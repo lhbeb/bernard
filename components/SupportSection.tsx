@@ -88,10 +88,10 @@ export default function SupportSection() {
                         
                         <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl">
                             <Image
-                                src="/story.jpg"
-                                alt="Bernady Krzysztof Unity game development projects"
+                                src="/bernard1.jpeg"
+                                alt="Bernady Krzysztof speaking at GDS2027 Game Dev Summit"
                                 fill
-                                className="object-cover object-center"
+                                className="object-cover object-top"
                                 sizes="(max-width: 1024px) 100vw, 450px"
                                 quality={95}
                             />

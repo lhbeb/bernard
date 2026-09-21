@@ -1,167 +1,31 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Coffee, Download, Gamepad2, MonitorPlay, PenTool, Sparkles, Video } from 'lucide-react'
+import { ArrowUpRight, Code2, Download, Gamepad2, GraduationCap, Video } from 'lucide-react'
 
 export const metadata = {
-    title: 'About - Bernady Krzysztof',
-    description: 'Meet Bernady Krzysztof, an indie game developer sharing Unity 3D projects, assets, scripts, templates, and development experiments.',
+    title: 'About Bernady Krzysztof | Game Development Teacher',
+    description: 'Bernady Krzysztof is an indie game developer teaching game development through Unity source code, practical lessons, premium game foundations, and 1:1 Zoom calls.',
 }
 
-const stats = [
-    { value: '35+',  label: 'Games Created' },
-    { value: '50+',  label: 'Unity Resources' },
-    { value: '100+', label: 'Dev Experiments' },
-    { value: '1.2K', label: 'Indie Developers' },
-]
-
-const values = [
-    {
-        icon: PenTool,
-        title: 'Unity 3D Projects',
-        desc: 'Explore complete Unity projects to understand how playable worlds, systems, environments, and mechanics come together.',
-    },
-    {
-        icon: Sparkles,
-        title: 'Free Game Assets',
-        desc: 'Download useful assets and starter resources so you can spend less time staring at an empty project and more time creating.',
-    },
-    {
-        icon: Video,
-        title: 'Scripts, Systems & Templates',
-        desc: 'Reusable code, systems, and templates that help indie developers build features faster and learn from practical examples.',
-    },
-    {
-        icon: MonitorPlay,
-        title: 'Mechanics & Prototypes',
-        desc: 'Experiment with gameplay mechanics, prototypes, and development ideas you can modify for your own game.',
-    },
+const offers = [
+    { icon: Download, title: 'Free educational source code', desc: 'Download the free projects, read the code, and use them to understand how game systems are built.' },
+    { icon: Code2, title: 'Premium game foundations', desc: 'Buy a complete source-code foundation, reskin it, build your own game on top, and sell the finished game.' },
+    { icon: Video, title: '1:1 Zoom coaching', desc: 'Get direct help with Unity, game design, code, debugging, project planning, or your next step as a developer.' },
 ]
 
 export default function AboutPage() {
-    return (
-        <div className="min-h-screen bg-[#0d0f14] text-slate-200">
-
-            {/* Hero */}
-            <section className="relative overflow-hidden border-b border-[#1f2433]">
-                <div className="absolute inset-0 grid-bg opacity-60" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#39ff8a]/5 blur-[120px] rounded-full pointer-events-none" />
-
-                <div className="relative max-w-5xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12">
-                    <div className="flex-shrink-0">
-                        <div className="relative w-40 h-40 rounded-2xl overflow-hidden border-2 border-[#39ff8a]/40 shadow-2xl shadow-black/40">
-                            <Image src="/avatarpng.jpg" alt="Bernady Krzysztof" fill className="object-cover" />
-                        </div>
-                    </div>
-
-                    <div>
-                        <div className="inline-flex items-center gap-2 bg-[#39ff8a]/10 border border-[#39ff8a]/25 text-[#39ff8a] text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
-                            <Gamepad2 size={12} /> Indie Game Developer
-                        </div>
-                        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-                            Hey, I&apos;m Bernady
-                        </h1>
-                        <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-                            I&apos;m an indie game developer passionate about turning ideas into playable worlds with Unity 3D.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <div className="max-w-5xl mx-auto px-6 py-16 space-y-20">
-
-                {/* Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {stats.map(({ value, label }) => (
-                        <div key={label} className="bg-[#13161d] border border-[#1f2433] rounded-2xl p-6 text-center">
-                            <p className="text-3xl font-bold text-[#39ff8a] mb-1 font-mono">{value}</p>
-                            <p className="text-sm text-slate-500">{label}</p>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Story */}
-                <div className="flex flex-col md:flex-row gap-10 items-start">
-                    <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-white mb-4">The Story</h2>
-                        <div className="space-y-4 text-slate-400 leading-relaxed">
-                            <p>
-                                I&apos;m Bernady Krzysztof, an indie game developer who has created more than 35 games while experimenting with mechanics, environments, gameplay systems, and visual styles using Unity 3D.
-                            </p>
-                            <p>
-                                I know how difficult it can be to start making games when you are staring at an empty Unity project. That&apos;s why I share my projects, assets, templates, scripts, experiments, and downloadable resources.
-                            </p>
-                            <p>
-                                Instead of starting from zero, explore my projects, understand how things work, modify them, and use what you learn to build something of your own.
-                            </p>
-                            <p className="text-slate-200 font-semibold">
-                                Keep creating. Keep experimenting. Ship your game.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="w-full md:w-72 flex-shrink-0 bg-[#13161d] border border-[#1f2433] rounded-2xl p-6">
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-[#0d0f14] border border-[#1f2433]">
-                            <Image src="/bernard1.jpeg" alt="Bernady Krzysztof at GDS2027" fill className="object-cover object-top" />
-                        </div>
-                        <p className="text-sm text-slate-500 leading-relaxed">
-                            Unity projects, asset listings, scripts, prototypes, and practical experiments for indie developers.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Values */}
-                <div>
-                    <h2 className="text-2xl font-bold text-white mb-8">What You&apos;ll Find Here</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {values.map(({ icon: Icon, title, desc }) => (
-                            <div key={title} className="bg-[#13161d] border border-[#1f2433] hover:border-[#2d3348] rounded-2xl p-6 flex gap-4 transition-colors">
-                                <div className="w-10 h-10 rounded-xl bg-[#39ff8a]/10 border border-[#39ff8a]/20 flex items-center justify-center flex-shrink-0">
-                                    <Icon size={18} className="text-[#39ff8a]" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-white mb-1">{title}</h3>
-                                    <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* CTA */}
-                <div className="bg-[#13161d] border border-[#1f2433] rounded-3xl p-10 text-center relative overflow-hidden">
-                    <div className="absolute inset-0 grid-bg opacity-40" />
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#39ff8a]/5 blur-[80px] rounded-full pointer-events-none" />
-                    <div className="relative">
-                        <h2 className="text-2xl font-bold text-white mb-3">Start Building Your Game</h2>
-                        <p className="text-slate-500 mb-7 max-w-md mx-auto">
-                            Explore Unity resources, learn from real projects, and support the next game-development experiment.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-                            <Link
-                                href="/"
-                                className="inline-flex items-center gap-2 bg-[#39ff8a] hover:brightness-110 text-[#0d0f14] font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#39ff8a]/20 hover:scale-105"
-                            >
-                                <Download size={16} />
-                                Browse Resources
-                            </Link>
-                            <a
-                                href="https://buymeacoffee.com/bernadykrzysztof"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-[#FFDD00] hover:brightness-105 text-[#0d0f14] font-bold px-6 py-3 rounded-xl transition-all"
-                            >
-                                <Coffee size={16} />
-                                Support My Work
-                            </a>
-                        </div>
-                        <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#39ff8a]">
-                            <Gamepad2 size={15} />
-                            Help more indie developers go from an idea to a playable game
-                        </p>
-                    </div>
-                </div>
-
+    return <div className="min-h-screen bg-[#111318] text-white">
+        <section className="border-b border-white/10">
+            <div className="max-w-5xl mx-auto px-6 py-20 sm:py-28 flex flex-col md:flex-row items-start gap-10 md:gap-14">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-2 border-[#b8f23a]/50 flex-shrink-0"><Image src="/avatar.png" alt="Bernady Krzysztof" fill className="object-cover" /></div>
+                <div className="max-w-2xl"><div className="inline-flex items-center gap-2 bg-[#b8f23a]/10 border border-[#b8f23a]/25 text-[#b8f23a] text-xs font-bold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest"><Gamepad2 size={12} /> Indie game developer</div><h1 className="font-display text-4xl sm:text-6xl font-bold leading-tight mb-5">I teach people how to make games.</h1><p className="text-white/65 text-lg sm:text-xl leading-relaxed">I’m Bernady Krzysztof, an indie game developer. This site is for developers who want to learn Unity, understand how games are made, and move from an idea to a working project.</p></div>
             </div>
+        </section>
+        <div className="max-w-5xl mx-auto px-6 py-16 sm:py-20 space-y-20">
+            <section><p className="mono text-xs uppercase tracking-[.14em] text-[#b8f23a] mb-3">What I provide</p><h2 className="font-display text-3xl sm:text-4xl font-bold mb-5">Clear resources. Useful code. Direct teaching.</h2><p className="text-white/65 text-lg leading-relaxed max-w-3xl">Most people get stuck because they start with an empty project and no clear path. I share working examples and explain how they work so you can build with less guesswork.</p></section>
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-5">{offers.map(({ icon: Icon, title, desc }) => <article key={title} className="bg-white/[.04] border border-white/10 rounded-2xl p-6"><div className="w-10 h-10 rounded-xl bg-[#b8f23a]/10 border border-[#b8f23a]/20 flex items-center justify-center mb-5"><Icon size={18} className="text-[#b8f23a]" /></div><h3 className="font-bold text-lg mb-2">{title}</h3><p className="text-sm text-white/55 leading-relaxed">{desc}</p></article>)}</section>
+            <section id="coaching" className="scroll-mt-24 grid md:grid-cols-[1fr_280px] gap-10 items-start"><div><p className="mono text-xs uppercase tracking-[.14em] text-[#b8f23a] mb-3">1:1 coaching</p><h2 className="font-display text-3xl font-bold mb-5">Bring your problem. Leave with a plan.</h2><div className="space-y-4 text-white/65 leading-relaxed"><p>Use a 1:1 Zoom call to review your project, understand a system, fix a technical issue, plan a prototype, or learn the next skill you need.</p><p>This is practical teaching for people who want to make progress—not a generic course and not vague motivation.</p></div></div><div className="rounded-2xl border border-[#b8f23a]/25 bg-[#b8f23a]/[.06] p-6"><GraduationCap className="text-[#b8f23a] mb-4" size={24} /><p className="font-bold mb-2">Want a call?</p><p className="text-sm text-white/55 leading-relaxed mb-5">Use the coaching section on the homepage to ask about a 1:1 session.</p><Link href="/#support" className="inline-flex items-center gap-2 rounded-full bg-[#b8f23a] text-[#111318] font-bold px-4 py-2.5 text-sm">Ask about coaching <ArrowUpRight size={14} /></Link></div></section>
+            <section className="rounded-3xl bg-white/[.04] border border-white/10 p-8 sm:p-10"><h2 className="font-display text-2xl sm:text-3xl font-bold mb-3">Start with the free code.</h2><p className="text-white/55 max-w-xl leading-relaxed mb-7">Learn from an educational project first. When you need a stronger starting point, use a premium foundation to build and sell your own game.</p><Link href="/" className="inline-flex items-center gap-2 rounded-full bg-[#b8f23a] text-[#111318] font-bold px-5 py-3">Browse source code <ArrowUpRight size={16} /></Link></section>
         </div>
-    )
+    </div>
 }

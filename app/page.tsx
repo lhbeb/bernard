@@ -8,9 +8,9 @@ export default function HomePage() {
         <div>
             <HeroSection />
             <ProductGrid
-                title="Start with a free building block"
-                subtitle="Small, practical Unity resources for testing an idea without starting from an empty project."
-                filterType="free"
+                title="Game source code"
+                subtitle="Free code to learn from. Premium foundations to reskin, build on, and sell."
+                filterType="all"
             />
             <SupportSection />
             <SocialLinks />

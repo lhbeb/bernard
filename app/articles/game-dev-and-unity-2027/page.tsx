@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 
 export const metadata = {
@@ -11,6 +12,7 @@ export default function GameDevUnity2027Article() {
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
             <Link href="/#articles" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--muted-text)] hover:text-[var(--ink)] transition-colors mb-12"><ArrowLeft size={15} /> Back to articles</Link>
             <header className="border-b border-[var(--line)] pb-10 mb-12"><p className="mono text-xs uppercase tracking-[.14em] text-[var(--cobalt)] mb-4">Unity outlook · 2027</p><h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05] mb-6">Game Dev and Unity in 2027</h1><p className="text-lg text-[var(--muted-text)] leading-relaxed max-w-2xl">A practical look at the Unity roadmap, runtime changes, production stability, and the tools shaping how teams will build games next.</p><div className="flex flex-wrap items-center gap-3 mt-7 text-xs mono uppercase tracking-wide text-[var(--muted-text)]"><span>By Bernady Krzysztof</span><span className="w-1 h-1 rounded-full bg-[var(--signal-lime)]" /><span>Unity development</span></div></header>
+            <div className="relative aspect-[16/7] overflow-hidden rounded-2xl mb-12 bg-[var(--paper-deep)]"><Image src="/article1.png" alt="Game development and Unity in 2027" fill priority className="object-cover" sizes="(max-width: 896px) 100vw, 896px" /></div>
             <div className="article-copy">
                 <p>By late 2026, Unity&apos;s roadmap stopped being a promise and started being a release schedule. That matters for anyone planning production timelines into 2027, because for the first time in years the engine&apos;s direction is public, dated, and backed by actual studios testing it in live projects.</p>
                 <h2>Unity 7 lands, but not as a reboot</h2>
